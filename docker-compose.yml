@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  hardhat-node:
+    image: ghcr.io/foundry-rs/foundry:v1.0.0
+    command: ["anvil", "--host", "0.0.0.0", "--chain-id", "1337"]
+    ports:
+      - "8545:8545"
+    volumes:
+      - ./hardhat:/app
+    restart: unless-stopped
