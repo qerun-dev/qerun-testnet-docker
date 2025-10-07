@@ -1,10 +1,11 @@
 services:
   hardhat-node:
-    image: node:20-alpine
+    image: node:22-alpine
     working_dir: /app
-    command: ["npx", "hardhat", "node", "--hostname", "0.0.0.0"]
+    command: ["sh", "-c", "npm install && npx hardhat node --hostname 0.0.0.0"]
     ports:
       - "8545:8545"
     volumes:
       - ./hardhat:/app
+      - ./data:/data
     restart: unless-stopped
