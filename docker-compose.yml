@@ -1,9 +1,8 @@
-version: "3.8"
-
 services:
   hardhat-node:
-    image: ghcr.io/foundry-rs/foundry:v1.0.0
-    command: ["anvil", "--host", "0.0.0.0", "--chain-id", "1337"]
+    image: node:20-alpine
+    working_dir: /app
+    command: ["npx", "hardhat", "node", "--hostname", "0.0.0.0"]
     ports:
       - "8545:8545"
     volumes:
